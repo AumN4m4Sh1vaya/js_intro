@@ -32,13 +32,7 @@ FizzBuzz();
 */
 function countBs(subject)
 {
-  var count = 0;
-
-  for (var i = 0; i < subject.length; i++)
-    if (subject.charAt(i) == "B")
-      count++;
-
-  return count;
+  return countChar(subject, "B");
 }
 
 
