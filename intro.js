@@ -33,23 +33,55 @@ FizzBuzz();
 function countBs(subject)
 {
   var count = 0;
-  for (var i = 0; i < subject.length; i++) {
+
+  for (var i = 0; i < subject.length; i++)
     if (subject.charAt(i) == "B")
       count++;
-  }
 
-  console.log(count);
+  return count;
 }
+
+
+var testSubjects = ["", "a", "b", "B", "BB"];
 
 /*
  * Tests the countBs function with a few sample subjects
 */
-function test_countBs() {
-  var testSubjects = ["", "a", "b", "B", "BB"];
-  for (var i = 0; i < testSubjects.length; i++) {
-    countBs(testSubjects[i]);
-  }
+function test_countBs()
+{
+  for (var i = 0; i < testSubjects.length; i++)
+    console.log("\'B\'s in \"" + testSubjects[i] + "\": "
+                + countBs(testSubjects[i]));
 }
 
 test_countBs();
 
+/*
+ * Counts the occurrences of the given object within the given subject
+*/
+function countChar(subject, object)
+{
+  var count = 0;
+
+  for (var i = 0; i < subject.length; i++)
+    if (subject.charAt(i) == object)
+      count++;
+
+  return count;
+} 
+
+/*
+ * Tests the countChar function with some sample input
+*/
+function test_countChar()
+{
+  var testObjects = ["a", "b", "B"];
+
+  for (var j = 0; j < testObjects.length; j++)
+    for (var i = 0; i < testSubjects.length; i++) {
+      console.log("[" + testObjects[j] + "]\'s in \"" + testSubjects[i]
+                  + "\": " + countChar(testSubjects[i], testObjects[j]));
+    }
+}
+
+test_countChar();
